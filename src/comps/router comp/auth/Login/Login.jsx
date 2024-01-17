@@ -1,11 +1,14 @@
 import { useState } from "react";
 import './login.css';
-import {NavLink} from 'react-router-dom';
+import { NavLink, redirect } from 'react-router-dom';
 import auth from '../../../../firebase/firebase';
-import  { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword , signInWithEmailAndPassword ,onAuthStateChanged } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
-
+import { useDispatch} from "react-redux";
+import { setUserdata } from "../../../redux/user/userSlice";
 function Login() {
+
+    const [loading,setloading]=useState(false);
     const [data, setdata] = useState({
         name: "",
         number: "",
@@ -24,22 +27,38 @@ function Login() {
 
 
     };
-    const [login,setlogin]=useState();
+
+    const dispatch=useDispatch();
+
+    const [login, setlogin] = useState();
     // react hot toast 
     const notify = () => toast('Here is your toast.');
-    const email_pass_auth=(authdata)=>
+    
+    const log_in=(logdata)=>
     {
-        createUserWithEmailAndPassword(auth,authdata.name,authdata.number).then((val)=>
+        setloading(true)
+        signInWithEmailAndPassword(auth,logdata.name,logdata.number).then((value)=>
         {
-            const user=val.user;
-            console.log("user data",user);
-
-            setlogin(user);
+            const loggedin=value.user;
+           
+            console.log(loggedin,"log in success");
         }).catch((error)=>
         {
-            console.error(error,"authentication error")
+            console.error(error,"you cant perform this action");
+        }).finally(()=>
+        {
+            setloading(false)
         })
-        
+    }
+    const email_pass_auth = (authdata) => {
+        createUserWithEmailAndPassword(auth, authdata.name, authdata.number).then((val) => {
+            const user = val.user;
+            console.log(user,"sign up success");
+        }).catch((error) => {
+            console.error(error, "authentication error");
+            log_in(authdata)
+        })
+
     }
     const submitted = (e) => {
         e.preventDefault();
@@ -50,7 +69,7 @@ function Login() {
         <div className="App">
             <div className="form-wrapper">
                 <div className="left">
-                    <h1 className="login-head" >log in to continue</h1>
+                    <h1 className="login-head" >register below to continue</h1>
                     <div className="form">
                         <form onSubmit={submitted} className="form-content">
                             <input
@@ -82,11 +101,11 @@ function Login() {
 
                     </div>
 
-                
+
                 </div>
                 <div className="signup">
-                        <h1>don't have an account ? <span><NavLink to="/signup">sign up</NavLink></span></h1>
-                    </div>
+                    <h1>don't have an account ? <span><NavLink to="/signup">sign up</NavLink></span></h1>
+                </div>
             </div>
         </div>
     );

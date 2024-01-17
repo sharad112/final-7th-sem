@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './home.module.css';
 
+import { NavLink } from 'react-router-dom';
+
 const Home = () => {
   return (
     <div className={styles.home_wrapper} >
@@ -10,7 +12,8 @@ const Home = () => {
         
       </div>
       <div className="buttons">
-      <button className={styles.recommend} >get recommendation</button>
+
+      <button className={styles.recommend} >  <NavLink to="crops" >get Recommendations</NavLink> </button>
       </div>
     </div>
   )
