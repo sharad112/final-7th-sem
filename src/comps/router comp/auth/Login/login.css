@@ -1,0 +1,88 @@
+.form-wrapper {
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+    background-color: #eeeeee;
+    min-height: 75vh;
+    margin: 0 auto;
+    text-align: center;
+    padding: 3rem 0rem 0rem 0rem;
+    margin-top: 2rem;
+    flex-direction: column;
+}
+
+.login-head {
+    font-size: 1.5rem;
+}
+
+.left {
+
+    width: 100%;
+}
+
+.form,
+.form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.form {
+    margin-top: 2rem;
+}
+
+.form-content input {
+    width: 95%;
+    height: 3rem;
+    border-radius: .1rem;
+    border: none;
+}
+
+.form-content input:not(:first-child) {
+    margin-top: 2rem;
+}
+
+::placeholder {
+    padding-left: 1rem;
+    text-transform: capitalize;
+}
+
+.submit {
+    padding: .8rem 1.2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    background-color: #000;
+    color: white;
+    width: 95%;
+}
+
+.or h1 {
+    font-size: 1.2rem;
+    margin: 1rem 0rem;
+    text-transform: capitalize;
+}
+
+.google {
+    padding: .7rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid black;
+    text-transform: capitalize;
+    font-size: 1rem;
+    color: black;
+    width: 95%;
+}
+
+.signup h1 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+.signup span 
+{
+    color: #5342F0;
+}

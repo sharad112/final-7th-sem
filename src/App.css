@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+@font-face {
+  font-family: sf;
+  src: url(../public/fonts/FontsFree-Net-SFProDisplay-Semibold.ttf);
+}
+*
+{
+  margin: 0;
+  padding: 0%;
+  font-family:sf;
+}
+.top-nav
+{
+  padding: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 4rem;
+  /* background-color: #000000; */
+  /* border-radius: 2rem; */
+  color: rgb(0, 0, 0);
+}

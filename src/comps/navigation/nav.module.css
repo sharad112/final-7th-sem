@@ -1,0 +1,42 @@
+
+.nav_wrapper
+ {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 2rem;
+    justify-content: space-between;
+    background-color: black;
+    height: 4rem;
+ }
+ .heading h1 
+ {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    color: wheat;
+ }
+ .menus 
+ {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    text-transform: capitalize;
+    align-items: center;
+ }
+ .nav 
+ {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+ }
+ .login 
+ {
+    padding: .5rem 2rem;
+    color: #eee;
+    background-color: #0A4231;
+    border-radius: .5rem;
+    text-transform: capitalize;
+    text-decoration: none;
+ }
