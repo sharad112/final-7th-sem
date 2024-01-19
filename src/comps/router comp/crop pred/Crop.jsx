@@ -1,8 +1,10 @@
-import React from 'react'
-
+import React from 'react';
+import Image from '../../Image/Image';
 const Crop = () => {
   return (
-    <div>Crop</div>
+    <div>
+      <Image/>
+    </div>
   )
 }
 

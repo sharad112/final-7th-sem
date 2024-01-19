@@ -64,6 +64,7 @@ function Login() {
         e.preventDefault();
         email_pass_auth(data);
     };
+    auth.signOut();
     // const fun1 = () => {};
     return (
         <div className="App">

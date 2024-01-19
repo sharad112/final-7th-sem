@@ -9,6 +9,8 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.5",
     "firebase": "^10.7.1",
+    "imaginesdk": "^1.1.0",
+    "openai": "^4.24.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
