@@ -12,6 +12,7 @@ import { UseSelector,useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { setUserdata } from "./comps/redux/user/userSlice";
+import Form from "./comps/crops form/Form";
 import Crop from "./comps/router comp/crop pred/Crop";
 
 
@@ -31,7 +32,7 @@ const handleredirect=(data)=>
     onAuthStateChanged(auth,(user)=>
     {
       
-      user?handleredirect("/crops"):handleredirect("/login");
+      user?handleredirect("/history"):handleredirect("/login");
     })
   },[])
  
@@ -49,7 +50,7 @@ const handleredirect=(data)=>
             <Route path="/history" element={<History />} />
             <Route path="/setting" element={<Setting />} />
             <Route path="/login" element={<Login/>}/>
-            <Route path="/crops" element={<Crop/>}/>
+            <Route path="/crops" element={<Form/>}/>
             
           </Routes>
         </div>

@@ -1,0 +1,21 @@
+.history_wrapper 
+{
+    display: flex;
+    width: 95%;
+    margin: 0 auto;
+    justify-content: space-between;
+    height: 90vh;
+}
+.h_left 
+{
+    flex: .5;
+    width: 100%;
+    background-color: rgb(218, 238, 255);
+    padding: 1rem;
+}
+ 
+.h_right 
+{
+    flex: .5;
+    width: 100%;
+}

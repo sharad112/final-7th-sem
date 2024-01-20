@@ -1,0 +1,7 @@
+   humidity,
+        phosporus,
+        temperature,
+        rainfall,
+        pottasium,
+        ph value,
+        nitrogen,

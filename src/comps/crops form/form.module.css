@@ -1,0 +1,50 @@
+.form {
+    display: flex;
+    width: 90%;
+     
+    flex-wrap: wrap;
+    background-color: #eeeeee;
+    min-height: 75vh;
+    margin: 0 auto;
+    margin-top: 2rem;
+    flex-direction: column;
+    text-align: center;
+}
+.heading h1 
+{
+    font-size: 1.6rem;
+    text-transform: capitalize;
+
+    margin-top: 2rem;
+}
+.heading p 
+{
+    color: grey;
+    text-transform: capitalize;
+    margin-top: 1rem;
+}
+.form_inside 
+{
+    width:90%;
+    margin: 2rem auto 0rem auto;
+}
+
+.form_inside input
+{
+    width: 30%;
+    height: 3rem;
+    border-radius: .1rem;
+    border: none;
+    margin: 1rem;
+}
+.submit {
+    padding: .8rem 1.2rem;
+    margin-top: 2rem;
+    border-radius: 10px;
+    border: none;
+    text-transform: capitalize;
+    font-size: 1rem;
+    background-color: #000;
+    color: white;
+    min-width: 10rem;
+}
