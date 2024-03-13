@@ -1,29 +1,45 @@
-import React from 'react';
-import { database } from '../../../firebase/firebase';
-import styles from './history.module.css'
+import React, { useState, useEffect } from 'react';
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import auth from '../../../firebase/firebase';
+
 const History = () => {
-  console.log(database,"firebase database");
-  return (
-    <div className={styles.history_wrapper} >
-      <div className={styles.h_left}>
-        <div className="h_lefttop">
-          <h1>prediction history</h1>
-          <input type="text" name="" id="" placeholder='search for predection' />
+    const [userSubmissions, setUserSubmissions] = useState([]);
+    const [userEmail, setUserEmail] = useState("");
+
+    const db = getFirestore(); // Initialize Firestore
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            if (user) {
+                setUserEmail(user.email);
+                fetchUserSubmissions(user.email);
+            }
+        });
+
+        return unsubscribe;
+    }, []);
+
+    const fetchUserSubmissions = async (email) => {
+        const q = query(collection(db, "submissions"), where("userEmail", "==", email));
+        const querySnapshot = await getDocs(q);
+        const submissions = [];
+        querySnapshot.forEach((doc) => {
+            submissions.push({ id: doc.id, ...doc.data() });
+        });
+        console.log("User submissions:", submissions); // Log the fetched data
+        setUserSubmissions(submissions);
+    };
+
+    return (
+        <div>
+            <h2>Your Submission History</h2>
+            <ul>
+                {userSubmissions.map(submission => (
+                    <li key={submission.id}>{submission.result}</li>
+                ))}
+            </ul>
         </div>
+    );
+};
 
-
-        <div className="h_leftbottom">
-          <div className="history_card">
-              <h3>history from this date</h3>
-          </div>
-        </div>
-      </div>
-
-      <div className="h_right">
-        <h1>history details tab</h1>
-      </div>
-    </div>
-  )
-}
-
-export default History
+export default History;

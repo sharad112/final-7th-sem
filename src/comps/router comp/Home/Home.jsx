@@ -13,7 +13,10 @@ const Home = () => {
       </div>
       <div className="buttons">
 
-      <button className={styles.recommend} >  <NavLink to="crops" >get Recommendations</NavLink> </button>
+      <button className={styles.recommend} >  <NavLink style={{
+        "textDecoration":"none",
+        "color":"white"
+      }} to="crops" >get Recommendations</NavLink> </button>
       </div>
     </div>
   )

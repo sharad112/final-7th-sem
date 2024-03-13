@@ -1,0 +1,44 @@
+/* .top_card
+{
+    height: 10rem;
+    width: 10rem;
+    background-color: #eeeeee;
+    padding: .5rem;
+} */
+
+.first_card 
+{
+    height: 10rem;
+    width: 20rem;
+    background-color: #eeeeee;
+    padding: 1rem; 
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.first_top 
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 95%;
+
+}
+.first_top h2 
+{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.first_bottom h1
+{
+    text-transform: capitalize;
+    font-size: 1.2rem;    
+    font-weight: bolder;
+}
+.first_bottom h3 
+{
+    color: grey;
+    font-size: .8rem;
+    text-transform: capitalize;
+}

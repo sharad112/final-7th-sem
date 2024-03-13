@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{
+    font-family: "Open Sans", sans-serif;
+}
+.top_cards 
+{
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0rem 2rem;
+}
+.top_heading
+{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    align-items: center;
+    margin: 0 auto;
+}
+.top_heading h1 
+{
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.top_heading h3 
+{
+    color: blue;
+    text-transform: capitalize;
+    font-size: .8rem;
+    padding: 1rem 0rem;
+}

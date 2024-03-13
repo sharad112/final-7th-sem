@@ -27,13 +27,13 @@ function Login() {
 
 
     };
-
+    auth.signOut();
     const dispatch=useDispatch();
 
     const [login, setlogin] = useState();
     // react hot toast 
     const notify = () => toast('Here is your toast.');
-    
+    // auth.signOut();
     const log_in=(logdata)=>
     {
         setloading(true)

@@ -7,14 +7,14 @@ import Setting from "./comps/router comp/setting/Setting";
 import Login from "./comps/router comp/auth/Login/Login";
 import auth from "./firebase/firebase";
 import { store } from "./comps/redux/store/store";
-import { Provider, useSelector } from "react-redux";
-import { UseSelector,useDispatch } from "react-redux";
+import { Provider } from "react-redux";
+import {useDispatch } from "react-redux";
 import { onAuthStateChanged } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { setUserdata } from "./comps/redux/user/userSlice";
 import Form from "./comps/crops form/Form";
-import Crop from "./comps/router comp/crop pred/Crop";
-
+import Dashboard from "./comps/router comp/userdashboard/Dashboard";
+import Result from "./comps/router comp/result/Result";
 
 function App() {
   const [logdata,setlog]=useState();
@@ -32,7 +32,7 @@ const handleredirect=(data)=>
     onAuthStateChanged(auth,(user)=>
     {
       
-      user?handleredirect("/history"):handleredirect("/login");
+      user?handleredirect("/crops"):handleredirect("/login");
     })
   },[])
  
@@ -50,8 +50,9 @@ const handleredirect=(data)=>
             <Route path="/history" element={<History />} />
             <Route path="/setting" element={<Setting />} />
             <Route path="/login" element={<Login/>}/>
+            <Route path="/dashboard" element={<Dashboard/>}/>
             <Route path="/crops" element={<Form/>}/>
-            
+            <Route path="/result" element={<Result/>}/>
           </Routes>
         </div>
       </div>
