@@ -117,17 +117,21 @@ const Form = () => {
                     },
                 }
             );
+            const date = new Date();
 
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            let currentDate = `${day}-${month}-${year}`;
             await addDoc(collection(db, 'submissions'), {
                 result: response.data[0].predicted_crop,
                 userEmail: userEmail,
-                timestamp: serverTimestamp()
+                timestamp: serverTimestamp(),
+                date:currentDate,
             });
 
             const recommendedCrop = response.data[0].predicted_crop;
-            navigate('/result', {
-                state: { result: response.data, recommendedCrop: recommendedCrop }
-            });
+            navigate("/result",{state:{crop:recommendedCrop}});  
         } catch (error) {
             console.error(error);
             alert('Error sending request.');

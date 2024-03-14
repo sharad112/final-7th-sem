@@ -1,0 +1,30 @@
+.result_wrap
+{
+    height: 20rem;
+    min-width: 10rem;
+    background-color: #eee;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.heading  h1 
+{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.button button 
+{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: black;
+    color: white;
+    border-radius: 2rem;
+    text-transform: capitalize;
+    margin-top: 2rem;
+}

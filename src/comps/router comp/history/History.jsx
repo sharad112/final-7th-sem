@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import auth from '../../../firebase/firebase';
+import Table from './historycomps/Table';
 
 const History = () => {
     const [userSubmissions, setUserSubmissions] = useState([]);
@@ -33,11 +34,7 @@ const History = () => {
     return (
         <div>
             <h2>Your Submission History</h2>
-            <ul>
-                {userSubmissions.map(submission => (
-                    <li key={submission.id}>{submission.result}</li>
-                ))}
-            </ul>
+            <Table data={userSubmissions}/>
         </div>
     );
 };
