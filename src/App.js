@@ -32,7 +32,7 @@ const handleredirect=(data)=>
     onAuthStateChanged(auth,(user)=>
     {
       
-      user?handleredirect("/result"):handleredirect("/login");
+      user?handleredirect("/crops"):handleredirect("/login");
     })
   },[])
  
