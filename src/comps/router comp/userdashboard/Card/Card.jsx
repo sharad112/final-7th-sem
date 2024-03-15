@@ -2,19 +2,19 @@ import React from 'react';
 import styles from './dashboard.module.css';
 import { CiMenuBurger } from "react-icons/ci";
 
-const Card = () => {
+const Card = ({name,data}) => {
   return (
     <div>
     <div className={styles.top_card}>
         <div className={styles.first_card}>
             <div className={styles.first_top}>
                 <CiMenuBurger/>
-                <h2>param name</h2>
+                <h2>{name}</h2>
             </div>
 
             <div className={styles.first_bottom}>
-                <h1>1200</h1>
-                <h3>12% more than past month</h3>
+                <h1>{data}</h1>
+                {/* <h3>12% more than past month</h3> */}
             </div>
         </div>
         <div className="second-card">

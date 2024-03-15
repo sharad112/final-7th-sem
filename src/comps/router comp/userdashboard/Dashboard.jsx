@@ -1,8 +1,9 @@
 import React from 'react';
 import Card from './Card/Card';
-import { data } from './random';
 import styles from './dash.module.css';
 import Bottom from './bottom/Bottom';
+import data from './data'
+import img from './charts/matrix.png'
 const Dashboard = () => {
   return (
     <div>
@@ -16,19 +17,23 @@ const Dashboard = () => {
             data.map((value)=>
             {
                 return(
-                    <Card/>
+                    <Card name={value.name} data={value.data} />
                 )
             })
         }
         </div>
       </div>
 
-      <div className="bottom">
+      <div className={styles.bottom}>
 
-        <div className="bottom_top">
-            <h1>charts and visualization</h1>
+        <div className={styles.bottom_top}>
+            <h1>confusion matrix and accuracy</h1>
         </div>
-            <Bottom/>
+            <div className="bottom_bottom">
+              <div className={styles.matrix}>
+                <img src={img} alt="" srcset="" />
+              </div>
+            </div>
       </div>
     </div>
 

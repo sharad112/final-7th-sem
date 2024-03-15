@@ -4,6 +4,7 @@ import styles from './form.module.css';
 import axios from 'axios';
 import { getFirestore, collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import auth from '../../firebase/firebase';
+import { Audio } from "react-loader-spinner";
 
 const Form = () => {
     const navigate = useNavigate();
@@ -26,6 +27,7 @@ const Form = () => {
         N: ""
     });
     const [userEmail, setUserEmail] = useState("");
+    const [loading, setLoading] = useState(false); // New loading state
 
     const db = getFirestore(); // Initialize Firestore
 
@@ -49,61 +51,37 @@ const Form = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true); // Set loading to true when form is submitted
 
-        const newErrors = { ...errors };
+        const newErrors = {};
 
-        // Validation for humidity
+        // Validation logic for each input field
         if (data.humidity === "" || data.humidity < 40 || data.humidity > 90) {
             newErrors.humidity = "Humidity value should be between 40 and 90.";
-        } else {
-            newErrors.humidity = "";
         }
-
-        // Validation for P
-        if (data.P === "" || data.P < 10 || data.P > 50) {
-            newErrors.P = "Phosphorus value should be between 10 and 50.";
-        } else {
-            newErrors.P = "";
+        if (data.P === "" || data.P < 0 || data.P > 250) {
+            newErrors.P = "Phosphorus value should be between 0 and 250.";
         }
-
-        // Validation for temperature
-        if (data.temperature === "" || data.temperature < 10 || data.temperature > 40) {
-            newErrors.temperature = "Temperature value should be between 10 and 40.";
-        } else {
-            newErrors.temperature = "";
+        if (data.temperature === "" || data.temperature < 10 || data.temperature > 48) {
+            newErrors.temperature = "Temperature value should be between 10 and 48.";
         }
-
-        // Validation for rainfall
-        if (data.rainfall === "" || isNaN(data.rainfall)) {
-            newErrors.rainfall = "Rainfall value should be a number.";
-        } else {
-            newErrors.rainfall = "";
+        if (data.rainfall === "" || data.rainfall < 30 || data.rainfall > 300) {
+            newErrors.rainfall = "Rainfall value should be between 30 and 300.";
         }
-
-        // Validation for K
-        if (data.K === "" || data.K < 0.5 || data.K > 2) {
-            newErrors.K = "Potassium value should be between 0.5 and 2.";
-        } else {
-            newErrors.K = "";
+        if (data.K === "" || data.K < 0 || data.K > 250) {
+            newErrors.K = "Potassium value should be between 0 and 250.";
         }
-
-        // Validation for ph
-        if (data.ph === "" || data.ph < 5.5 || data.ph > 7.5) {
-            newErrors.ph = "pH value should be between 5.5 and 7.5.";
-        } else {
-            newErrors.ph = "";
+        if (data.ph === "" || data.ph < 0 || data.ph > 14) {
+            newErrors.ph = "pH value should be between 0 and 14.";
         }
-
-        // Validation for N
-        if (data.N === "" || data.N < 0.1 || data.N > 5) {
-            newErrors.N = "Nitrogen value should be between 0.1 and 5.";
-        } else {
-            newErrors.N = "";
+        if (data.N === "" || data.N < 0 || data.N > 250) {
+            newErrors.N = "Nitrogen value should be between 0 and 250.";
         }
 
         setErrors(newErrors);
 
         if (Object.values(newErrors).some(error => error)) {
+            setLoading(false); // Set loading to false if there are errors
             return;
         }
 
@@ -127,12 +105,14 @@ const Form = () => {
                 result: response.data[0].predicted_crop,
                 userEmail: userEmail,
                 timestamp: serverTimestamp(),
-                date:currentDate,
+                date: currentDate,
             });
 
             const recommendedCrop = response.data[0].predicted_crop;
-            navigate("/result",{state:{crop:recommendedCrop}});  
+            setLoading(false); // Set loading to false when response is received
+            navigate("/result", { state: { crop: recommendedCrop } });
         } catch (error) {
+            setLoading(false); // Set loading to false in case of error
             console.error(error);
             alert('Error sending request.');
         }
@@ -188,7 +168,12 @@ const Form = () => {
                         <span className={styles.error}>{errors.N}</span>
                     </div>
                     <br />
-                    <button type="submit" className={styles.submit}>Get recommendation</button>
+                    <div className={styles.loaderContainer}>
+                        {loading && <Audio type="Audio" color="#00BFFF" height={80} width={80} />}
+                    </div>
+                    {!loading && (
+                        <button type="submit" className={styles.submit}>Get recommendation</button>
+                    )}
                 </div>
             </form>
         </div>

@@ -31,3 +31,25 @@
     font-size: .8rem;
     padding: 1rem 0rem;
 }
+.bottom 
+{
+    width:95%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+.bottom_top h1 
+{
+    font-size: 1.1rem;
+}
+.matrix 
+{
+    max-height: 40rem;
+    width: 30rem;
+    background-color: #eee;
+}
+.matrix img 
+{
+    height: 80%;
+    width: 100%;
+    object-fit: contain;
+}
