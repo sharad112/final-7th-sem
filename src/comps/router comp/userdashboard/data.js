@@ -7,7 +7,7 @@ const data=[
     {
         id:2,
         name:"predicted crops",
-        data:"14"
+        data:"22"
     },
     {
         id:3,

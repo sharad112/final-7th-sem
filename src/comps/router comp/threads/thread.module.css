@@ -1,0 +1,44 @@
+.thread_wrapper 
+{
+    width: 95%;
+    align-items: center;
+    margin: 0 auto;
+}
+.thread_heading 
+{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+}
+.thread_top_left h1 
+{
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.thread_top_left p 
+{
+    color:grey;
+    margin-top: .5rem;
+}
+.thread_top_right button
+{
+    padding: .5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    text-transform: capitalize;
+}
+.new 
+{
+    background-color: #B2FFC3;
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-right: 1rem;
+}
+.thread_top_right button:last-child
+{
+    border: 1px solid black;
+    font-weight:bold;
+    cursor: pointer;
+}

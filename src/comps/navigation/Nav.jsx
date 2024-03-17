@@ -48,7 +48,15 @@ const Nav = () => {
         <NavLink className={styles.nav} to="/dashboard">
           Dashboard
         </NavLink>
-        {loggedIn ? (
+
+        <NavLink className={styles.nav} to="/threads">
+          threads
+        </NavLink>
+        
+      </div>
+
+      <div className="buttons">
+      {loggedIn ? (
           <button className={styles.login} onClick={handleSignOut}>
             Sign Out
           </button>

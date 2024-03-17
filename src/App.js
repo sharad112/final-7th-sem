@@ -15,6 +15,8 @@ import { setUserdata } from "./comps/redux/user/userSlice";
 import Form from "./comps/crops form/Form";
 import Dashboard from "./comps/router comp/userdashboard/Dashboard";
 import Result from "./comps/router comp/result/Result";
+import Thread from "./comps/router comp/threads/Thread";
+import Details from "./comps/router comp/threads/threaddetails/Details";
 
 function App() {
   const [logdata,setlog]=useState();
@@ -32,7 +34,7 @@ const handleredirect=(data)=>
     onAuthStateChanged(auth,(user)=>
     {
       
-      user?handleredirect("/crops"):handleredirect("/login");
+      user?handleredirect("/threads"):handleredirect("/login");
     })
   },[])
  
@@ -53,6 +55,8 @@ const handleredirect=(data)=>
             <Route path="/dashboard" element={<Dashboard/>}/>
             <Route path="/crops" element={<Form/>}/>
             <Route path="/result" element={<Result/>}/>
+            <Route path="/threads" element={<Thread/>}/>
+            <Route path="/thread/:id" element={<Details/>}/>
           </Routes>
         </div>
       </div>
