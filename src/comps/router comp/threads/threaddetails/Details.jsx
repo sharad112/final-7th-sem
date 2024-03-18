@@ -65,10 +65,10 @@ const ThreadDetail = () => {
         <p>Loading...</p>
       ) : thread ? (
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4">{thread.heading}</h2>
+          <h2 className="text-2xl font-semibold mb-4">{thread.heading}</h2> {/* Larger main heading */}
           <ul>
             {replies.map((reply, index) => (
-              <li key={index} className="mb-2">
+              <li key={index} className="mb-4"> {/* Added margin-bottom */}
                 <div className="flex items-center mb-2">
                   <strong className="mr-2">{reply.email}</strong>
                   <span className="text-gray-500 text-sm">{reply.time}</span>
