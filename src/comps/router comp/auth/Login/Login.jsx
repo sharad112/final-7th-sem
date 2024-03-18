@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from 'react-router-dom';
 import auth from '../../../../firebase/firebase';
 import { createUserWithEmailAndPassword , signInWithEmailAndPassword } from 'firebase/auth';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast'; // Import Toaster
 import { useDispatch } from "react-redux";
 import { setUserdata } from "../../../redux/user/userSlice";
 
@@ -30,6 +30,7 @@ function Login() {
             const userCredential = await signInWithEmailAndPassword(auth, data.name, data.number);
             const user = userCredential.user;
             console.log(user, "Login success");
+            toast.success('Login successful');
         } catch (error) {
             console.error(error, "Login failed");
             const errorMessage = error.message || "Login failed";
@@ -44,6 +45,7 @@ function Login() {
             const userCredential = await createUserWithEmailAndPassword(auth, data.name, data.number);
             const user = userCredential.user;
             console.log(user, "Signup success");
+            toast.success('Signup successful');
         } catch (error) {
             console.error(error, "Signup failed");
             const errorMessage = error.message || "Signup failed";
@@ -92,6 +94,8 @@ function Login() {
                 </div>
                 <p className="text-center mt-4">Don't have an account? <NavLink to="/signup" className="text-blue-500">Sign up</NavLink></p>
             </div>
+            {/* Toaster component */}
+            <Toaster />
         </div>
     );
 }
