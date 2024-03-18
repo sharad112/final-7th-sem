@@ -70,7 +70,7 @@ function Login() {
         <div className="App">
             <div className="form-wrapper">
                 <div className="left">
-                    <h1 className="login-head" >register below to continue</h1>
+                    <h1 className="login-head " >register below to continue</h1>
                     <div className="form">
                         <form onSubmit={submitted} className="form-content">
                             <input
