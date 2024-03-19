@@ -17,6 +17,7 @@ import Dashboard from "./comps/router comp/userdashboard/Dashboard";
 import Result from "./comps/router comp/result/Result";
 import Thread from "./comps/router comp/threads/Thread";
 import Details from "./comps/router comp/threads/threaddetails/Details";
+import Signup from "./comps/router comp/auth/signup/Signup";
 
 function App() {
   const [logdata,setlog]=useState();
@@ -57,6 +58,7 @@ const handleredirect=(data)=>
             <Route path="/result" element={<Result/>}/>
             <Route path="/threads" element={<Thread/>}/>
             <Route path="/thread/:id" element={<Details/>}/>
+            <Route path="/signup" element={<Signup/>}/>
           </Routes>
         </div>
       </div>
