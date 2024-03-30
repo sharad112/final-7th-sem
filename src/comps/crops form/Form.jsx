@@ -27,7 +27,7 @@ const Form = () => {
         N: ""
     });
     const [userEmail, setUserEmail] = useState("");
-    const [loading, setLoading] = useState(false); // New loading state
+    const [loading, setLoading] = useState(false); // NEW LOADING STATE
 
     const db = getFirestore(); // Initialize Firestore
 
